@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog Creator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="header">
+        <span id="app-name">My Blog Creator</span>
+        <a id="source-link" href="https://github.com/DIKSHANT0SAI" target="_blank">
+            <img src="github.png" alt="GitHub" style="height:24px;vertical-align:middle;margin-right:6px;">
+            View on GitHub
+        </a>
+    </div>
+
+    <div id="hero-section">
+        <div class="hero-content">
+            <h1>Welcome to My Blog Creator</h1>
+            <p>Create, save, and discover blogs with a simple, modern interface.</p>
+            <img src="github.png" alt="Decorative" class="hero-img">
+        </div>
+        <svg viewBox="0 0 1440 120" width="100%" height="60" style="display:block;" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#181a20" fill-opacity="1" d="M0,32L1440,120L1440,0L0,0Z"></path>
+        </svg>
+    </div>
+
+    <div id="button-section">
+        <button id="manual-btn">Create Blog Manually</button>
+        <button id="api-btn">Create a Blog Using API</button>
+    </div>
+
+    <div id="main-interface">
+        <div id="form-section">
+            <form id="manual-form" style="display:none;">
+                <input type="text" id="manual-title" placeholder="Title" required><br>
+                <textarea id="manual-desc" placeholder="Description" required></textarea><br>
+                <button type="submit">Submit</button>
+            </form>
+            <form id="api-form" style="display:none;">
+                <input type="text" id="api-title" placeholder="Title to search" required><br>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div id="blog-card-section"></div>
+    </div>
+
+    <div id="features-section">
+        <div class="feature-card">
+            <h3>Easy Blog Creation</h3>
+            <p>Write blogs manually or Search Here.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Save & Edit</h3>
+            <p>Save your blogs or edit them.</p>
+        </div>
+        
+    </div>
+
+    <div id="saved-blogs-section">
+        <h2>Saved Blogs</h2>
+        <div id="saved-blogs-list"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <div id="signature">DIKSHANT Sai</div>
+</body>
+</html>
