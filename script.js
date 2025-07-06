@@ -1,4 +1,4 @@
-// Get elements
+
 var manualBtn = document.getElementById('manual-btn');
 var apiBtn = document.getElementById('api-btn');
 var manualForm = document.getElementById('manual-form');
@@ -8,12 +8,10 @@ var savedBlogsList = document.getElementById('saved-blogs-list');
 var mainInterface = document.getElementById('main-interface');
 var animating = false;
 
-// Clear the blog card section
 function clearBlogCardSection() {
     blogCardSection.innerHTML = "";
 }
 
-// Simple sideways animation for interface
 function animateTransition(direction, callback) {
     if (animating) return;
     animating = true;
@@ -35,7 +33,7 @@ function animateTransition(direction, callback) {
     }, 700);
 }
 
-// Button click events with animation
+
 manualBtn.onclick = function() {
     animateTransition('right', function() {
         manualForm.style.display = "block";
@@ -51,7 +49,7 @@ apiBtn.onclick = function() {
     });
 };
 
-// Manual form submit
+
 manualForm.onsubmit = function(e) {
     e.preventDefault();
     var title = document.getElementById('manual-title').value;
@@ -60,7 +58,7 @@ manualForm.onsubmit = function(e) {
     manualForm.reset();
 };
 
-// API form submit
+
 apiForm.onsubmit = function(e) {
     e.preventDefault();
     var searchTitle = document.getElementById('api-title').value;
@@ -93,7 +91,7 @@ apiForm.onsubmit = function(e) {
     apiForm.reset();
 };
 
-// Show a blog card with Save button
+
 function showBlogCard(title, desc) {
     clearBlogCardSection();
     var card = document.createElement('div');
@@ -117,7 +115,7 @@ function showBlogCard(title, desc) {
     blogCardSection.appendChild(card);
 }
 
-// Save blog to localStorage and show in Saved Blogs
+
 function saveBlog(title, desc) {
     var blogs = [];
     if (localStorage.getItem('blogs')) {
@@ -133,7 +131,7 @@ function saveBlog(title, desc) {
     showSavedBlogs();
 }
 
-// Show all saved blogs
+
 function showSavedBlogs() {
     savedBlogsList.innerHTML = "";
     var blogs = [];
@@ -149,7 +147,7 @@ function showSavedBlogs() {
         p.innerText = blogs[i].description;
         var actions = document.createElement('div');
         actions.className = "card-actions";
-        // Edit button
+  
         var editBtn = document.createElement('button');
         editBtn.innerText = "Edit";
         editBtn.onclick = (function(index) {
@@ -157,7 +155,7 @@ function showSavedBlogs() {
                 editBlog(index);
             };
         })(i);
-        // Delete button
+      
         var delBtn = document.createElement('button');
         delBtn.innerText = "Delete";
         delBtn.onclick = (function(index) {
@@ -174,7 +172,7 @@ function showSavedBlogs() {
     }
 }
 
-// Edit a saved blog
+
 function editBlog(index) {
     var blogs = JSON.parse(localStorage.getItem('blogs'));
     var newTitle = prompt("Edit Title:", blogs[index].title);
@@ -187,16 +185,15 @@ function editBlog(index) {
     showSavedBlogs();
 }
 
-// Delete a saved blog
+
 function deleteBlog(index) {
-    if (!confirm("Are you sure you want to delete this blog?")) return;
+    if (!confirm(" you want to delete this blog?")) return;
     var blogs = JSON.parse(localStorage.getItem('blogs'));
     blogs.splice(index, 1);
     localStorage.setItem('blogs', JSON.stringify(blogs));
     showSavedBlogs();
 }
 
-// On page load
 window.onload = function() {
     showSavedBlogs();
     manualForm.style.display = "none";
